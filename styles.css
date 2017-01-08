@@ -1,0 +1,22 @@
+#jumbotron {
+    background-color: #4957B8;
+    background-image: url(https://status.im/img/new-site/dot.svg);
+    margin-top: 30px;
+    border-radius: 10px;
+}
+
+#title {
+    color: white;
+}
+
+#mainButton {
+    background-color: #68c0f8;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: sans-serif;
+}
+
+#mainButton:hover {
+    background-color: #84cfff;
+}
