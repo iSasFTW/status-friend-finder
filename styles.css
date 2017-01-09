@@ -1,11 +1,15 @@
-#jumbotron {
+.body {
+    background-color: #eef2f5;
+}
+
+#indexMainLayout {
     background-color: #4957B8;
     background-image: url(https://status.im/img/new-site/dot.svg);
     margin-top: 30px;
     border-radius: 10px;
 }
 
-#title {
+.title {
     color: white;
 }
 
@@ -15,8 +19,110 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     font-family: sans-serif;
+    transition: background-color .2s ease;
 }
 
 #mainButton:hover {
+    background-color: #84cfff;
+}
+
+/* Signup page */
+
+#signupMainLayout {
+    background-color: #4957B8;
+    background-image: url(https://status.im/img/new-site/dot.svg);
+    margin-top: 30px;
+    border-radius: 10px;
+}
+
+/* styling input fields */
+
+.inputfield {
+    background-color: rgba(255,255,255,.12);
+    border-radius: 8px;
+    height: 45px;
+    margin: 5px;
+    width: 60%;
+    color: white;
+    font-family: PostGrotesk-Book,sans-serif;
+    border: none;
+    transition: background-color .2s ease;
+    padding: 12px 20px;
+}
+
+.inputfield:focus {
+    background-color: rgba(255,255,255,.20);
+    outline: none;
+}
+
+/* Input placeholder on various browsers */
+
+.inputfield::-webkit-input-placeholder {
+    color: #d0d0d0;
+}
+
+.inputfield::-moz-input-placeholder {
+    color: #d0d0d0;
+}
+
+.inputfield::-webkit-input-placeholder {
+    color: #d0d0d0;
+}
+
+.inputfield:-ms-input-placeholder {
+    color: #d0d0d0;
+}
+
+.inputfield:-moz-input-placeholder {
+    color: #d0d0d0;
+}
+
+#signupButton {
+    background-color: #68c0f8;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: sans-serif;
+    transition: background-color .2s ease;
+    text-align: center;
+}
+
+#signupButton:hover {
+    background-color: #84cfff;
+}
+
+#signinLink {
+    color: white;
+    transition: color .2s ease;
+    text-decoration: none;
+}
+
+#signinLink:hover {
+    color: #cbcbcb;
+}
+
+/* Sign in page */
+
+#signupLink {
+    color: white;
+    transition: color .2s ease;
+    text-decoration: none;
+}
+
+#signupLink:hover {
+    color: #cbcbcb;
+}
+
+#signinButton {
+    background-color: #68c0f8;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: sans-serif;
+    transition: background-color .2s ease;
+    text-align: center;
+}
+
+#signinButton:hover {
     background-color: #84cfff;
 }
