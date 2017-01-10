@@ -10,10 +10,23 @@ firebase.initializeApp(config);
 
 // Get elements
 
-const signupPubkey = document.getElementById('publicKey');
-const signupPass = document.getElementById('password');
+const signupPubkey = document.getElementById('signupPublicKey');
+const signupPass = document.getElementById('signupPassword');
 const signupButton = document.getElementById('signupButton');
 
 const signinPubkey = document.getElementById('signinPublicKey');
 const signinPass = document.getElementById('signinPassword');
 const signinButton = document.getElementById('signinButton');
+
+signupButton.addEventListener('click', e => {
+    // Get pubkey and pass
+    
+    const pubkey = signinPubkey.value;
+    const pass = signinPass.value;
+    const auth = firebase.auth();
+    
+    // Sign up
+    const promise = loginWithEmailAndPassword(pubkey, pass);
+    promise.catch(e => console.log(e.message));
+})
+
