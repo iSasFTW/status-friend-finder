@@ -26,9 +26,8 @@
     background-color: #84cfff;
 }
 
-/* Signup page */
 
-#signupMainLayout {
+#signinMainLayout {
     background-color: #4957B8;
     background-image: url(https://status.im/img/new-site/dot.svg);
     margin-top: 30px;
@@ -77,41 +76,6 @@
     color: #d0d0d0;
 }
 
-#signupButton {
-    background-color: #68c0f8;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-family: sans-serif;
-    transition: background-color .2s ease;
-    text-align: center;
-}
-
-#signupButton:hover {
-    background-color: #84cfff;
-}
-
-#signinLink {
-    color: white;
-    transition: color .2s ease;
-    text-decoration: none;
-}
-
-#signinLink:hover {
-    color: #cbcbcb;
-}
-
-/* Sign in page */
-
-#signupLink {
-    color: white;
-    transition: color .2s ease;
-    text-decoration: none;
-}
-
-#signupLink:hover {
-    color: #cbcbcb;
-}
 
 #signinButton {
     background-color: #68c0f8;

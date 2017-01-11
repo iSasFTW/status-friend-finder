@@ -5,20 +5,17 @@
         <link href="styles.css" rel="stylesheet" type="text/css">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
     </head>
     
     <body class="body">
         <div class="container">
-            <div class="jumbotron" id="signupMainLayout">
-                <h2 class="title">Sign back into your account!</h2>
+            <div class="jumbotron" id="signinMainLayout">
+                <h2 class="title">Find friends!</h2>
                 <br />
                 <br />
                 <br />
-                <input type="text" id="signinPublicKey" class="inputfield" placeholder="Type your ethereum public key"><br>
-                <input type="password" id="signinPassword" class="inputfield" placeholder="Create a password"><br>
-                <button class="btn" id="signinButton">Sign in</button>&nbsp;
-                <a href="signup.html" id="signupLink">Don't have an account yet?</a>
+                <input type="text" id="signinPublicKey" class="inputfield" placeholder="Type your status wallet's ethereum public key"><br><br>
+                <button class="btn" id="signinButton">Show me my friends list!</button>
             </div>
         </div>
         
@@ -28,6 +25,31 @@
         src="https://code.jquery.com/jquery-3.1.1.min.js"
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
         crossorigin="anonymous"></script>
-        
+        <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+        <script>
+            var config = {
+                apiKey: "AIzaSyAuGWK3aQiwgAZzkA4Z9NbqG6q8qJvr7AA",
+                authDomain: "status-friend-finder.firebaseapp.com",
+                databaseURL: "https://status-friend-finder.firebaseio.com",
+                storageBucket: "status-friend-finder.appspot.com",
+                messagingSenderId: "38615167502"
+            };
+            firebase.initializeApp(config);
+            
+            const pubkey = document.getElementById('signinPublicKey');
+            const btn = document.getElementById('signinButton');
+            
+            btn.addEventListener('click', e => {
+                const public = pubkey.value;
+                const auth = firebase.auth();
+                
+                const promise = auth.signInAnonymously();
+                promise.catch(e => console.log(e.message));
+                
+                var db = firebase.database();
+                if db.ref('users').child
+            });
+            
+        </script>
     </body>
 </html>
