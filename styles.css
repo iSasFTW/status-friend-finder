@@ -2,6 +2,8 @@
     background-color: #eef2f5;
 }
 
+/* Index page */
+
 #indexMainLayout {
     background-color: #4957B8;
     background-image: url(https://status.im/img/new-site/dot.svg);
@@ -26,13 +28,6 @@
     background-color: #84cfff;
 }
 
-
-#signinMainLayout {
-    background-color: #4957B8;
-    background-image: url(https://status.im/img/new-site/dot.svg);
-    margin-top: 30px;
-    border-radius: 10px;
-}
 
 /* styling input fields */
 
@@ -76,7 +71,7 @@
     color: #d0d0d0;
 }
 
-
+/* Signin page */
 #signinButton {
     background-color: #68c0f8;
     color: white;
@@ -89,4 +84,20 @@
 
 #signinButton:hover {
     background-color: #84cfff;
+}
+
+
+#signinMainLayout {
+    background-color: #4957B8;
+    background-image: url(https://status.im/img/new-site/dot.svg);
+    margin-top: 30px;
+    border-radius: 10px;
+}
+
+/* Friends page */
+#signinMainLayout {
+    background-color: #4957B8;
+    background-image: url(https://status.im/img/new-site/dot.svg);
+    margin-top: 30px;
+    border-radius: 10px;
 }

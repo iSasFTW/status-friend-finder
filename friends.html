@@ -10,12 +10,13 @@
     <body class="body">
         <div class="container">
             <div class="jumbotron" id="signinMainLayout">
-                <h2 class="title">Sign in with your Status Public key!</h2>
+                <h2 class="title">Find friends!</h2>
                 <br />
                 <br />
                 <br />
-                <input type="text" id="signinPublicKey" class="inputfield" placeholder="Type your status wallet's ethereum public key"><br><br>
-                <button class="btn" id="signinButton">Show me my friends list!</button>
+                <table class="table">
+                    <tr><p>Hello!</p></tr>
+                </table>
             </div>
         </div>
         
@@ -35,37 +36,6 @@
                 messagingSenderId: "38615167502"
             };
             firebase.initializeApp(config);
-            
-            const pubkey = document.getElementById('signinPublicKey');
-            const btn = document.getElementById('signinButton');
-            
-            btn.addEventListener('click', e => {
-                const public = pubkey.value;
-                const auth = firebase.auth();
-                
-                // Check if users exists or not, add if doesn't
-                
-                var db = firebase.database();
-                
-                // Login
-                const promise = auth.signInAnonymously();
-                promise.catch(e => console.log(e.message));
-                
-                var usersRef = db.ref('users')
-                usersRef.orderByChild("publickey").equalTo(public).once("value", function(snapshot) {
-                    if (snapshot.val()) {
-                        // User exists, forward
-                        window.location.href = "friends.html";
-                    } else {
-                        // User not found, add to db, and forward
-                        window.location.href = "friends.html";
-                        usersRef.push({publickey:public, bio:""})
-                    }
-                })
-            });
-                
-                
-            
         </script>
     </body>
 </html>
