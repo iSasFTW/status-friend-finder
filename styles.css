@@ -95,9 +95,25 @@
 }
 
 /* Friends page */
-#signinMainLayout {
+#friendsMainLayout {
     background-color: #4957B8;
     background-image: url(https://status.im/img/new-site/dot.svg);
     margin-top: 30px;
     border-radius: 10px;
+}
+
+.table thead th {
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.table tbody tr td {
+    color: white;
+    font-size: 0.6em;
+}
+
+.glyphicon-qrcode {
+    color: white;
+    font-size: 2em;
 }

@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>Find friends on Status!</title>
-        
+        <script src="https://use.fontawesome.com/87570cf17d.js"></script>
         <link href="styles.css" rel="stylesheet" type="text/css">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -9,13 +9,23 @@
     
     <body class="body">
         <div class="container">
-            <div class="jumbotron" id="signinMainLayout">
+            <div class="jumbotron" id="friendsMainLayout">
                 <h2 class="title">Find friends!</h2>
                 <br />
                 <br />
                 <br />
                 <table class="table">
-                    <tr><p>Hello!</p></tr>
+                    <thead>
+                        <th>Public Key</th>
+                        <th>QR Code (click to show)</th>
+                    </thead>
+                    
+                    <tbody id="tablecontent">
+                        <tr>
+                            <td>0x10beD864644581153CeFf38BefF073d2686Af3a9</td>
+                            <td><a href=""><span class="glyphicon glyphicon-qrcode" aria-hidden="true"></span></a></td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -36,6 +46,16 @@
                 messagingSenderId: "38615167502"
             };
             firebase.initializeApp(config);
+            
+            var myclass = "glyphicon glyphicon-qrcode";
+            var dummy1 = "dummy pubkey";
+            var dummy2 = "dummy bio";
+            var dummy3 = "#dummyurl";
+            
+            
+            $(document).ready(function(){
+               $("#tablecontent").append("<tr><td>"+dummy1+"</td><td><a href="+dummy3+"><span class="+myclass+"></span></a></td></tr>");
+            });
         </script>
     </body>
 </html>
