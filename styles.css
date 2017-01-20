@@ -117,3 +117,16 @@
     color: white;
 }
 
+.defaultButton {
+    background-color: #68c0f8;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: sans-serif;
+    transition: background-color .2s ease;
+    text-align: center;
+}
+
+.defaultButton:hover {
+    background-color: #84cfff;
+}

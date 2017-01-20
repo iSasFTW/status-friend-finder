@@ -11,6 +11,7 @@
         <div class="container">
             <div class="jumbotron" id="friendsMainLayout">
                 <h2 class="title">Find friends!</h2>
+                <button class="btn defaultButton">Logout</button>
                 <br />
                 <br />
                 <br />
@@ -28,7 +29,7 @@
         </div>
         
         
-        <script type="text/javascript" src="jquery.qrcode.min.js"></script>
+        <script type="text/javascript" src="kjua-0.1.1.min.js"></script>
         <script
         src="https://code.jquery.com/jquery-3.1.1.min.js"
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
@@ -48,8 +49,15 @@
             data.forEach(function(snapshot) {
             $("#tablecontent").append("<tr>" +
                 "<td>" + snapshot.child("publickey").val() + "</td>" +
-                "<td>" + "<a>Show QR Code</a>" + "</td>" +    
+                "<td>" + "<a id='"+snapshot.key+"'>Show QR Code</a>" + "<div id='qrcode"+snapshot.key+"' style='display: none;'></div>" + "</td>" +   
                 "</tr>");
+                
+                $("#" + snapshot.key).click(function() {
+                    $("#" + "qrcode" + snapshot.key).toggle();
+                    $("#" + "qrcode" + snapshot.key).empty();
+                    var qrcontent = kjua({text: snapshot.child("publickey").val()});
+                    document.querySelector("#qrcode" + snapshot.key).appendChild(qrcontent);
+                });
             });
         });
             
