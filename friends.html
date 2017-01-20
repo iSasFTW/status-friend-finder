@@ -28,7 +28,7 @@
         </div>
         
         
-        <script src="app.js"></script>
+        <script type="text/javascript" src="jquery.qrcode.min.js"></script>
         <script
         src="https://code.jquery.com/jquery-3.1.1.min.js"
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
@@ -44,11 +44,11 @@
             };
             firebase.initializeApp(config);
             
-            firebase.database().ref().once("value", function(data) {
+            firebase.database().ref("users").once("value", function(data) {
             data.forEach(function(snapshot) {
             $("#tablecontent").append("<tr>" +
                 "<td>" + snapshot.child("publickey").val() + "</td>" +
-                "<td>" + "<a href=" + "#" + snapshot.child("publickey").val()">Show QR Code</a>" + "</td>" +
+                "<td>" + "<a>Show QR Code</a>" + "</td>" +    
                 "</tr>");
             });
         });
