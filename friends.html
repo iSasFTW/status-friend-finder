@@ -21,10 +21,7 @@
                     </thead>
                     
                     <tbody id="tablecontent">
-                        <tr>
-                            <td>0x10beD864644581153CeFf38BefF073d2686Af3a9</td>
-                            <td><a href=""><span class="glyphicon glyphicon-qrcode" aria-hidden="true"></span></a></td>
-                        </tr>
+                        
                     </tbody>
                 </table>
             </div>
@@ -47,15 +44,18 @@
             };
             firebase.initializeApp(config);
             
-            var myclass = "glyphicon glyphicon-qrcode";
-            var dummy1 = "dummy pubkey";
-            var dummy2 = "dummy bio";
-            var dummy3 = "#dummyurl";
-            
-            
-            $(document).ready(function(){
-               $("#tablecontent").append("<tr><td>"+dummy1+"</td><td><a href="+dummy3+"><span class="+myclass+"></span></a></td></tr>");
+            firebase.database().ref().once("value", function(data) {
+            data.forEach(function(snapshot) {
+            $("#tablecontent").append("<tr>" +
+                "<td>" + snapshot.child("publickey").val() + "</td>" +
+                "<td>" + "<a href=" + "#" + snapshot.child("publickey").val()">Show QR Code</a>" + "</td>" +
+                "</tr>");
             });
+        });
+            
+            
+            
+            
         </script>
     </body>
 </html>
