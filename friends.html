@@ -30,6 +30,7 @@
         
         
         <script type="text/javascript" src="kjua-0.1.1.min.js"></script>
+        <script type="text/javascript" src="js.cookie.js"></script>
         <script
         src="https://code.jquery.com/jquery-3.1.1.min.js"
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
@@ -47,20 +48,42 @@
             
             firebase.database().ref("users").once("value", function(data) {
             data.forEach(function(snapshot) {
-            $("#tablecontent").append("<tr>" +
+            $("#tablecontent").append("<tr id='"+snapshot.key+"'>" +
                 "<td>" + snapshot.child("publickey").val() + "</td>" +
-                "<td>" + "<a id='"+snapshot.key+"'>Show QR Code</a>" + "<div id='qrcode"+snapshot.key+"' style='display: none;'></div>" + "</td>" +   
+                "<td>" + "<a id='btn"+snapshot.key+"'>Show QR Code</a>" + "<div id='qrcode"+snapshot.key+"' style='display: none;'></div>" + "</td>" + 
+                "<td>" + "<button id='markbtn"+snapshot.key+"' class='btn markButton'><span class='glyphicon glyphicon-check'></span></button>" + "</td>" + 
                 "</tr>");
                 
-                $("#" + snapshot.key).click(function() {
+                $("#" + "btn" + snapshot.key).click(function() {
                     $("#" + "qrcode" + snapshot.key).toggle();
                     $("#" + "qrcode" + snapshot.key).empty();
                     var qrcontent = kjua({text: snapshot.child("publickey").val()});
                     document.querySelector("#qrcode" + snapshot.key).appendChild(qrcontent);
+                    
+                    if($("#" + "btn" + snapshot.key).text() == "Show QR Code") {
+                        $("#" + "btn" + snapshot.key).text("Hide QR Code");
+                    } else {
+                        $("#" + "btn" + snapshot.key).text("Show QR Code");
+                    }
                 });
+                
+                $("#" + "markbtn" + snapshot.key).click(function() {
+                    $("#" + snapshot.key).toggleClass("marked");
+                    if(Cookies.get(snapshot.key) == undefined) {
+                        Cookies.set(snapshot.key, 'cookieset');
+                        console.log("Cookie " + snapshot.key + " has been set!");
+                    } else {
+                        Cookies.remove(snapshot.key);
+                        console.log("Cookie " + snapshot.key + " has been removed!");
+                    }
+                });
+
+                if(Cookies.get(snapshot.key) == "cookieset") {
+                    $("#" + snapshot.key).toggleClass("marked");
+                }
+                
             });
         });
-            
             
             
             

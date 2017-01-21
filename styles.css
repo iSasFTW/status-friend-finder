@@ -117,6 +117,33 @@
     color: white;
 }
 
+.marked {
+    background-color: #E3306D;
+    text-decoration: line-through;
+    border-radius: 8px !important;
+}
+
+.markButton {
+    background-color: #E3306D;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: sans-serif;
+    transition: background-color .2s ease;
+    text-align: center;
+}
+
+.markButton:hover {
+    background-color: #ef3e7a;
+    color: white !important;
+}
+
+.markButton:focus {
+    color: white !important;
+}
+
+/* General styles */
+
 .defaultButton {
     background-color: #68c0f8;
     color: white;
