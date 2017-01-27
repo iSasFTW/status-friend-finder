@@ -14,7 +14,9 @@
                 <br />
                 <br />
                 <br />
-                <input type="text" id="signinPublicKey" class="inputfield" placeholder="Type your status wallet's ethereum public key"><br><br>
+                <input type="text" id="signinPublicKey" class="inputfield" placeholder="Type your status wallet's ethereum public key">
+                <input type="text" id="enterName" class="inputfield hidden" placeholder="Enter a username!">
+                <div class="errorBox hidden"><p>Whoops! Remember to enter your public key!</p></div><br><br>
                 <button class="btn" id="signinButton">Show me my friends list!</button>
             </div>
         </div>
@@ -38,9 +40,11 @@
             
             const pubkey = document.getElementById('signinPublicKey');
             const btn = document.getElementById('signinButton');
+            const namebox = document.getElementById('enterName');
             
             btn.addEventListener('click', e => {
                 const public = pubkey.value;
+                const name = namebox.value;
                 const auth = firebase.auth();
                 
                 // Check if users exists or not, add if doesn't
@@ -56,10 +60,21 @@
                     if (snapshot.val()) {
                         // User exists, forward
                         window.location.href = "friends.html";
+                    } else if (public == "" || public == " "){
+                        // No key entered, display error!
+                        $(".errorBox").removeClass("hidden");
                     } else {
                         // User not found, add to db, and forward
-                        window.location.href = "friends.html";
-                        usersRef.push({publickey:public})
+                        $(".errorBox").removeClass("hidden");
+                        $(".errorBox > p").text("It seems like you are not yet registered! Please enter a username :)");
+                        $("#enterName").removeClass("hidden");
+                        
+                        if (name == "" || name == " "){
+                            
+                        } else {
+                            window.location.href = "friends.html";
+                            usersRef.push({publickey:public, username:name})
+                        }
                     }
                 })
             });

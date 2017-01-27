@@ -5,6 +5,8 @@
         <link href="styles.css" rel="stylesheet" type="text/css">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.16/clipboard.min.js"></script>
+
     </head>
     
     <body class="body">
@@ -16,7 +18,10 @@
                 <br />
                 <table class="table">
                     <thead>
+                        <th>Username</th>
+                        
                         <th>Public Key</th>
+                        
                         <th>QR Code (click to show)</th>
                     </thead>
 
@@ -45,13 +50,25 @@
             };
             firebase.initializeApp(config);
             
+            $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip();   
+            });
+            
+            
             firebase.database().ref("users").once("value", function(data) {
             data.forEach(function(snapshot) {
-            $("#tablecontent").append("<tr id='"+snapshot.key+"'>" +
+            $("#tablecontent").append("<tr id='"+snapshot.key+"'>" + 
+                "<td class='word-break'>" + "<b>" + snapshot.child("username").val() + "</b>" + "</td>" +
                 "<td class='word-break'>" + snapshot.child("publickey").val() + "</td>" +
                 "<td>" + "<a id='btn"+snapshot.key+"'>Show QR Code</a>" + "<div id='qrcode"+snapshot.key+"' style='display: none;'></div>" + "</td>" + 
-                "<td>" + "<button id='markbtn"+snapshot.key+"' class='btn markButton'><span class='glyphicon glyphicon-check'></span></button>" + "</td>" + 
+                "<td>" + "<button id='copybtn"+snapshot.key+"' class='btn copyButton' data-clipboard-text='"+snapshot.child("publickey").val()+"' data-toggle='tooltip' title='Copy public key to clipboard!'><span class='glyphicon glyphicon-copy'></span></button>" + "</td>" + 
+                "<td>" + "<button id='markbtn"+snapshot.key+"' class='btn markButton' title='Mark as added!'><span class='glyphicon glyphicon-check'></span></button>" + "</td>" + 
                 "</tr>");
+                
+                
+                new Clipboard("#" + "copybtn" + snapshot.key);
+                
+                
                 
                 $("#" + "btn" + snapshot.key).click(function() {
                     $("#" + "qrcode" + snapshot.key).toggle();

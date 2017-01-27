@@ -15,7 +15,7 @@
     color: white;
 }
 
-#mainButton {
+.mainButton {
     background-color: #68c0f8;
     color: white;
     text-transform: uppercase;
@@ -24,10 +24,9 @@
     transition: background-color .2s ease;
 }
 
-#mainButton:hover {
+.mainButton:hover {
     background-color: #84cfff;
 }
-
 
 /* styling input fields */
 
@@ -94,6 +93,25 @@
     border-radius: 10px;
 }
 
+.errorBox {
+    border-radius: 10px;
+    background-color: #E3306D;
+    height: 45px;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.errorBox p {
+    vertical-align: middle;
+    padding: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
 /* Friends page */
 #friendsMainLayout {
     background-color: #4957B8;
@@ -101,7 +119,6 @@
     margin-top: 30px;
     border-radius: 10px;
 }
-
 
 .table thead th {
     color: white;
@@ -152,6 +169,26 @@
 .markButton:focus {
     color: white !important;
 }
+
+.copyButton {
+    background-color: #E3306D;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: sans-serif;
+    transition: background-color .2s ease;
+    text-align: center;
+}
+
+.copyButton:hover {
+    background-color: #ef3e7a;
+    color: white !important;
+}
+
+.copyButton:focus {
+    color: white !important;
+}
+
 
 /* General styles */
 
