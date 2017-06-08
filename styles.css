@@ -1,3 +1,4 @@
+
 .body {
     background-color: #eef2f5;
 }
@@ -5,27 +6,65 @@
 /* Index page */
 
 #indexMainLayout {
-    background-color: #4957B8;
-    background-image: url(https://status.im/img/new-site/dot.svg);
+    background-color: #448fd0;
+    background-image: linear-gradient(-202deg,#7bb7ed 0,#3685c9 95%);
     margin-top: 30px;
     border-radius: 10px;
+    box-shadow: 0 10px 18px 0 rgba(122,135,142,.33);
+}
+
+#indexTitleContainer {
+    margin-top: 150px;
+}
+
+#indexPanel {
+    width: 50px;
+    margin-top: 60px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 18px 0 rgba(122,135,142,.33);
+}
+
+#indexPanelTitle {
+    font-size: 20px;
+    margin-top: 30px;
+    margin-left: 20px;
+    font-weight: 500;
+    color: #484848;
 }
 
 .title {
     color: white;
 }
 
+
 .mainButton {
-    background-color: #68c0f8;
+    text-decoration: none;
+    background-color: #6DABE0;
     color: white;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-family: sans-serif;
     transition: background-color .2s ease;
+    text-align: center;
+    margin-top: 5px;
 }
 
 .mainButton:hover {
-    background-color: #84cfff;
+    background-color: #7BB2E2;
+}
+
+.mainPanelButton {
+    text-decoration: none;
+    background-color: #6de0ab;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: sans-serif;
+    transition: background-color .2s ease;
+    text-align: center;
+    box-shadow: 0 2px 5px 0 rgba(122,135,142,.33);
+    margin-top: 5px;
 }
 
 /* styling input fields */
@@ -51,28 +90,28 @@
 /* Input placeholder on various browsers */
 
 .inputfield::-webkit-input-placeholder {
-    color: #d0d0d0;
+    color: white;
 }
 
 .inputfield::-moz-input-placeholder {
-    color: #d0d0d0;
+    color: white;
 }
 
 .inputfield::-webkit-input-placeholder {
-    color: #d0d0d0;
+    color: white;
 }
 
 .inputfield:-ms-input-placeholder {
-    color: #d0d0d0;
+    color: white;
 }
 
 .inputfield:-moz-input-placeholder {
-    color: #d0d0d0;
+    color: white;
 }
 
 /* Signin page */
 #signinButton {
-    background-color: #68c0f8;
+    background-color: #6DABE0;
     color: white;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -82,15 +121,17 @@
 }
 
 #signinButton:hover {
-    background-color: #84cfff;
+    background-color: #7BB2E2;
 }
 
 
 #signinMainLayout {
-    background-color: #4957B8;
-    background-image: url(https://status.im/img/new-site/dot.svg);
+    background-color: #448fd0;
+    background-image: linear-gradient(-202deg,#7bb7ed 0,#3685c9 95%);
     margin-top: 30px;
     border-radius: 10px;
+    box-shadow: 0 10px 18px 0 rgba(122,135,142,.33);
+    
 }
 
 .errorBox {
@@ -114,10 +155,11 @@
 
 /* Friends page */
 #friendsMainLayout {
-    background-color: #4957B8;
-    background-image: url(https://status.im/img/new-site/dot.svg);
+    background-color: #448fd0;
+    background-image: linear-gradient(-202deg,#7bb7ed 0,#3685c9 95%);
     margin-top: 30px;
     border-radius: 10px;
+    box-shadow: 0 10px 18px 0 rgba(122,135,142,.33);
 }
 
 .table thead th {
@@ -146,13 +188,13 @@
 }
 
 .marked {
-    background-color: #E3306D;
+    background-color: #A5F3E0;
     text-decoration: line-through;
     border-radius: 8px !important;
 }
 
 .markButton {
-    background-color: #E3306D;
+    background-color: #A5F3E0;
     color: white;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -162,7 +204,7 @@
 }
 
 .markButton:hover {
-    background-color: #ef3e7a;
+    background-color: #b3ebde;
     color: white !important;
 }
 
@@ -171,7 +213,7 @@
 }
 
 .copyButton {
-    background-color: #E3306D;
+    background-color: #A5F3E0;
     color: white;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -181,7 +223,7 @@
 }
 
 .copyButton:hover {
-    background-color: #ef3e7a;
+    background-color: #b3ebde;
     color: white !important;
 }
 
@@ -192,16 +234,18 @@
 
 /* General styles */
 
-.defaultButton {
-    background-color: #68c0f8;
+.mainButton {
+    text-decoration: none;
+    background-color: #6DABE0;
     color: white;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-family: sans-serif;
     transition: background-color .2s ease;
     text-align: center;
+    margin-top: 5px;
 }
 
-.defaultButton:hover {
-    background-color: #84cfff;
+.mainButton:hover {
+    background-color: #7BB2E2;
 }
