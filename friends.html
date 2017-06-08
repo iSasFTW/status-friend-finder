@@ -6,7 +6,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.16/clipboard.min.js"></script>
         <link href="styles.css" rel="stylesheet" type="text/css">
-        
+        <script src="https://use.fontawesome.com/f5338c61cf.js"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     
@@ -27,7 +27,6 @@
                     </thead>
 
                     <tbody id="tablecontent">
-
                     </tbody>
                 </table>
             </div>
@@ -62,8 +61,8 @@
                 "<td class='word-break'>" + "<b>" + snapshot.child("username").val() + "</b>" + "</td>" +
                 "<td class='word-break'>" + snapshot.child("publickey").val() + "</td>" +
                 "<td>" + "<a id='btn"+snapshot.key+"'>Show QR Code</a>" + "<div id='qrcode"+snapshot.key+"' style='display: none;'></div>" + "</td>" + 
-                "<td>" + "<button id='copybtn"+snapshot.key+"' class='btn copyButton' data-clipboard-text='"+snapshot.child("publickey").val()+"' data-toggle='tooltip' title='Copy public key to clipboard!'><span class='glyphicon glyphicon-copy'></span></button>" + "</td>" + 
-                "<td>" + "<button id='markbtn"+snapshot.key+"' class='btn markButton' title='Mark as added!'><span class='glyphicon glyphicon-check'></span></button>" + "</td>" + 
+                "<td>" + "<button id='copybtn"+snapshot.key+"' class='btn copyButton' data-clipboard-text='"+snapshot.child("publickey").val()+"' data-toggle='tooltip' title='Copy public key to clipboard!'><span class='fa fa-clone'></span></button>" + "</td>" + 
+                "<td>" + "<button id='markbtn"+snapshot.key+"' class='btn markButton' title='Mark as added!'><span class='fa fa-check'></span></button>" + "</td>" + 
                 "</tr>");
                 
                 
